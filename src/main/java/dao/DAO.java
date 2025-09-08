@@ -20,7 +20,7 @@ public class DAO {
 		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta +"/" + mydatabase;
 		String username = "postgres";
-		String password = "ti2cc"; //Aqui seria minha senha mas não vou subir a mesma para o GIT ;)
+		String password = "Pedro@2015"; //Aqui seria minha senha mas não vou subir a mesma para o GIT ;)
 		boolean status = false;
 
 		try {
