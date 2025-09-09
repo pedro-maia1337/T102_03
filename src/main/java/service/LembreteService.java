@@ -4,20 +4,15 @@ import dao.LembreteDAO;
 import model.Lembrete;
 import spark.Request;
 import spark.Response;
-
 import java.util.List;
+
+//Isso aqui lembra muito NODE JS ;)
 
 public class LembreteService {
 
     private final LembreteDAO dao = new LembreteDAO();
 
-    // =============================
-    // Métodos auxiliares
-    // =============================
-
-    /**
-     * Lê um arquivo HTML da pasta resources
-     */
+    //Carrega HTML estático
     private String carregarHTML(String arquivo) throws Exception {
         try (java.io.InputStream inputStream = getClass().getClassLoader().getResourceAsStream(arquivo)) {
             if (inputStream == null) {
@@ -31,11 +26,8 @@ public class LembreteService {
         return template.replace(marcador, valor);
     }
 
-    // =============================
-    // Rotas
-    // =============================
 
-    /** Listar todos os lembretes */
+    //Listar os lembretes na tela inicial de lembretes
     public Object listar(Request req, Response res) {
         try {
             List<Lembrete> lista = dao.get();
@@ -64,7 +56,7 @@ public class LembreteService {
         }
     }
 
-    /** Exibir formulário para criar novo lembrete */
+    //Form para novo lembrete
     public Object formNovo(Request req, Response res) {
         try {
             String html = carregarHTML("form.html");
@@ -83,7 +75,7 @@ public class LembreteService {
         }
     }
 
-    /** Criar lembrete */
+    //Criar novo lembrete
     public Object criar(Request req, Response res) {
         try {
             int codigo = Integer.parseInt(req.queryParams("codigo"));
@@ -103,7 +95,7 @@ public class LembreteService {
         }
     }
 
-    /** Exibir formulário para editar lembrete */
+    //Exibir form de edição
     public Object formEditar(Request req, Response res) {
         try {
             int codigo = Integer.parseInt(req.params("codigo"));
@@ -129,7 +121,7 @@ public class LembreteService {
         }
     }
 
-    /** Atualizar lembrete */
+    //Metódo de atualizar
     public Object atualizar(Request req, Response res) {
         try {
             int codigo = Integer.parseInt(req.params("codigo"));
@@ -149,7 +141,7 @@ public class LembreteService {
         }
     }
 
-    /** Excluir lembrete */
+    //Metódo de excluir
     public Object excluir(Request req, Response res) {
         try {
             int codigo = Integer.parseInt(req.params("codigo"));

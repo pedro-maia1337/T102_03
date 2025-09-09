@@ -1,47 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>CRUD Lembretes</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f0f0f0; }
-    a.button, input[type="submit"], button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 6px 12px;
-      border: none;
-      text-decoration: none;
-      cursor: pointer;
-      margin: 2px;
-    }
-    a.button:hover, input[type="submit"]:hover, button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Lembretes</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Lista de Lembretes</h1>
-  
-  <a class="button" href="/lembretes/novo">Novo Lembrete</a>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Título</th>
-        <th>Descrição</th>
-        <th>Valor</th>
-        <th>Data</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- O Spark irá injetar os dados dos lembretes aqui -->
-      {{tabelaLembretes}}
-    </tbody>
-  </table>
+    <div class="container">
+        <h1>Lembretes</h1>
+
+        <div class="actions">
+            <a href="/lembretes/novo" class="btn">+ Novo Lembrete</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{tabelaLembretes}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
